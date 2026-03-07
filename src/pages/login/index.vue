@@ -87,6 +87,9 @@ import { ref, reactive } from "vue";
 import { UserFilled, Lock, Phone } from "@element-plus/icons-vue";
 
 import { login, register } from "@/api";
+import router from "@/router";
+
+
 
 const loginForm = reactive({
   adminname: "",
@@ -108,15 +111,21 @@ const switchForm = () => {
   switchFormState.value = !switchFormState.value;
 };
 
+// 登录请求
 const handleLogin = async () => {
   try {
-    const res = await login(loginForm);
-    console.log(res);
+    const {data} = await login(loginForm);
+    console.log(data);
+    localStorage.setItem("token", data.data.adminToken);
+    localStorage.setItem("adminInfo", JSON.stringify(data.data.admin));
+    router.push("/home");
+
   } catch (error) {
     console.log(error);
   }
 };
 
+// 注册请求
 const handleRegister = async () => {
   try {
     const res = await register(registerForm);
