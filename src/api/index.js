@@ -16,3 +16,7 @@ export const getAdminList = () => {
 export const deleteAdmin = (data) => {
   return request.post("/admin/administrator/delAdmin", data);
 };
+// 更新管理员
+export const updateAdmin = (data) => {
+  return request.post("/admin/administrator/updateAdmin", data);
+};
