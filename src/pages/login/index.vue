@@ -116,8 +116,8 @@ const handleLogin = async () => {
   try {
     const {data} = await login(loginForm);
     console.log(data);
-    localStorage.setItem("token", data.data.adminToken);
-    localStorage.setItem("adminInfo", JSON.stringify(data.data.admin));
+    localStorage.setItem("token", data.adminToken);
+    localStorage.setItem("adminInfo", JSON.stringify(data.admin));
     router.push("/home");
 
   } catch (error) {

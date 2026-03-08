@@ -48,7 +48,7 @@ onMounted(async () => {
 
 // 获取管理员列表(后端通信)
 const getAdminTable = async () => {
-  const { data } = await getAdminList();
+  const  data  = await getAdminList();
   tableData.value = data;
 };
 
@@ -61,7 +61,7 @@ const handleDeleteClick = (adminInfo) => {
 // 删除管理员信息(后端通信)
 const handleConfirmDelete = async (adminInfo) => {
   const { adminID } = adminInfo;
-  const { data } = await deleteAdmin({ adminID });
+  const  data  = await deleteAdmin({ adminID });
   if (data.code === 200) {
     getAdminTable();
   }
@@ -75,7 +75,7 @@ const handleUpdateClick = (adminInfo) => {
 
 // 更新管理员信息(后端通信)
 const handleConfirmUpdate = async (adminInfo) =>{
-  const { data } = await updateAdmin(adminInfo);
+  const  data  = await updateAdmin(adminInfo);
   if (data.code === 200) {
     getAdminTable();
   }

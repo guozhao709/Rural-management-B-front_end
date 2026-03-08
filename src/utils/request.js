@@ -23,4 +23,23 @@ http.interceptors.request.use(
   },
 );
 
+// 响应拦截器
+http.interceptors.response.use(
+  (response) => {
+    return response.data;
+  },
+
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem("token");
+
+      if (window.location.pathname !== "/login") {
+        router.push("/login");
+      }
+    }
+
+    return Promise.reject(error);
+  },
+);
+
 export default http;
