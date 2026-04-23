@@ -8,7 +8,7 @@ export const login = (data) => {
 export const register = (data) => {
   return request.post("/admin/auth/register", data);
 };
-// 获取管理员数据
+// 获取管理员列表
 export const getAdminList = () => {
   return request.get("/admin/administrator/list");
 };
@@ -20,3 +20,11 @@ export const deleteAdmin = (data) => {
 export const updateAdmin = (data) => {
   return request.post("/admin/administrator/updateAdmin", data);
 };
+// 获取村民列表
+export const getVillagersList = (params) => {
+  return request.get("/admin/villagers/list", { params });
+};
+// 删除某个村民
+export const deleteVillager = (id) => {
+  return request.delete(`/admin/villagers/delete/${id}`);
+}
