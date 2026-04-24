@@ -28,3 +28,8 @@ export const getVillagersList = (params) => {
 export const deleteVillager = (id) => {
   return request.delete(`/admin/villagers/delete/${id}`);
 }
+
+// 更新某个村民
+export const updateVillager = (data) => {
+  return request.post(`/admin/villagers/update/${data.id}`, data);
+}

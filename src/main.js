@@ -5,6 +5,8 @@ import router from "./router";
 
 // 导入全局重置样式
 import "./styles/reset.scss";
+// 导入 Element Plus 样式
+import 'element-plus/dist/index.css'
 
 const app = createApp(App);
 
@@ -12,7 +14,5 @@ const app = createApp(App);
 // for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 //   app.component(key, component)
 // }
-
 app.use(router);
-
 app.mount("#app");
